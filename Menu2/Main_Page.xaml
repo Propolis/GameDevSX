@@ -10,7 +10,7 @@
 
     <Grid x:Name="GrMainPage">
         <Button x:Name="btSettings" Content="Настройки" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="150" Click="btSettings_Click"/>
-        <Button x:Name="btPlay" Content="Играть" HorizontalAlignment="Center" Margin="0,105,0,0" VerticalAlignment="Top" Height="40" Width="150"/>
+        <Button x:Name="btPlay" Content="Играть" HorizontalAlignment="Center" Margin="0,105,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="btPlay_Click"/>
         <Button x:Name="btGiveUp" Content="Сдаться" HorizontalAlignment="Center" Margin="0,304,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="btGiveUp_Click"/>
 
     </Grid>

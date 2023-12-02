@@ -52,5 +52,11 @@ namespace Menu2
         {
             Application.Current.Shutdown();
         }
+
+        private void btPlay_Click(object sender, RoutedEventArgs e)
+        {
+            GamePlay window = new GamePlay();
+            window.Show();
+        }
     }
 }

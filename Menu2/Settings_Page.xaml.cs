@@ -45,7 +45,6 @@ namespace Menu2
             btBack.BorderBrush = Brushes.White;
             btBack.Background = Brushes.Black;
             btBack.Foreground = Brushes.White;
-            //ТЕСТ
         }
 
         private void btBack_Click(object sender, RoutedEventArgs e)
