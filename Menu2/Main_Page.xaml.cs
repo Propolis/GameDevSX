@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +21,11 @@ namespace Menu2
     /// </summary>
     public partial class Main_Page : Page
     {
+        public static GamePlay AboutWindow;
         public Main_Page()
         {
             InitializeComponent();
+            Application.Current.MainWindow.WindowState = WindowState.Maximized;
             // Создание объекта ImageBrush с ссылкой на изображение
             ImageBrush imageBrush = new ImageBrush();
             imageBrush.ImageSource = new BitmapImage(new Uri("menu_picture.png", UriKind.Relative)); // Укажите путь к вашему изображению
@@ -55,8 +58,13 @@ namespace Menu2
 
         private void btPlay_Click(object sender, RoutedEventArgs e)
         {
-            GamePlay window = new GamePlay();
-            window.Show();
+            if (AboutWindow == null)
+            {
+                AboutWindow = new GamePlay();
+                AboutWindow.Show();
+                Window.GetWindow(this).Close(); // Закрыть текущее окно
+            }
+            else AboutWindow.Activate();
         }
     }
 }
