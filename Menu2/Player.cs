@@ -5,7 +5,10 @@ using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Menu2
@@ -15,7 +18,8 @@ namespace Menu2
 
         private bool _UpKeyPressed, _DownKeyPressed, _LeftKeyPressed, _RightKeyPressed;
         private float _SpeedX, _SpeedY, _Friction, _Speed;
-        public Player(float SpeedY = 0, float SpeedX = 0, bool UpKeyPressed = false, bool DownKeyPressed = false, bool LeftKeyPressed = false, bool RightKeyPressed = false, float Friction = 0.77f, float Speed = 2f)
+        private Rectangle _Character;
+        public Player(Rectangle Character, float SpeedY = 0, float SpeedX = 0, bool UpKeyPressed = false, bool DownKeyPressed = false, bool LeftKeyPressed = false, bool RightKeyPressed = false, float Friction = 0.77f, float Speed = 2f)
         {
             _Speed = Speed;
             _SpeedY = SpeedY;
@@ -25,19 +29,10 @@ namespace Menu2
             _DownKeyPressed = DownKeyPressed;
             _LeftKeyPressed = LeftKeyPressed;
             _RightKeyPressed = RightKeyPressed;
+            _Character = Character;
         }
-
-        public float X
-        {
-            get { return _SpeedX; }
-            set { _SpeedX = value; }
-        }
-
-        public float Y
-        {
-            get { return _SpeedY; }
-            set { _SpeedY = value; }
-        }
+        public float X { get; set; }
+        public float Y { get; set; }
 
         public void Move()
         {
@@ -59,11 +54,63 @@ namespace Menu2
             }
             _SpeedX = _SpeedX * _Friction;
             _SpeedY = _SpeedY * _Friction;
+            X = _SpeedX;
+            Y = _SpeedY;
 
             //Canvas.SetLeft(_Character, Canvas.GetLeft(_Character) + _SpeedX);
             //Collide("x");
             //Canvas.SetTop(_Character, Canvas.GetTop(_Character) - _SpeedY);
             //Collide("y");
+        }
+        public void KeyboardUp(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.W || e.Key == Key.Up)
+            {
+                _UpKeyPressed = false;
+            }
+            if (e.Key == Key.S || e.Key == Key.Down)
+            {
+                _DownKeyPressed = false;
+            }
+            if (e.Key == Key.A || e.Key == Key.Left)
+            {
+                _LeftKeyPressed = false;
+            }
+            if (e.Key == Key.D || e.Key == Key.Right)
+            {
+                _RightKeyPressed = false;
+            }
+        }
+
+        public void KeyBoardDown(object sender, KeyEventArgs e)
+        {
+            // Создаем новый объект ImageBrush
+            ImageBrush PlayerRight = new ImageBrush();
+            // Устанавливаем свойство ImageSource объекта ImageBrush на новое изображение
+            PlayerRight.ImageSource = new BitmapImage(new Uri("characterRight.png", UriKind.RelativeOrAbsolute));
+
+            ImageBrush PlayerLeft = new ImageBrush();
+            PlayerLeft.ImageSource = new BitmapImage(new Uri("characterLeft.png", UriKind.RelativeOrAbsolute));
+
+            if (e.Key == Key.W || e.Key == Key.Up)
+            {
+                _UpKeyPressed = true;
+            }
+            if (e.Key == Key.S || e.Key == Key.Down)
+            {
+                _DownKeyPressed = true;
+            }
+            if (e.Key == Key.A || e.Key == Key.Left)
+            {
+                _LeftKeyPressed = true;
+                _Character.Fill = PlayerLeft;
+            }
+            if (e.Key == Key.D || e.Key == Key.Right)
+            {
+                _RightKeyPressed = true;
+                _Character.Fill = PlayerRight;
+            }
         }
     }
 }

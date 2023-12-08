@@ -24,6 +24,7 @@ namespace Menu2
         private DispatcherTimer GameTimer = new DispatcherTimer();
         private bool UpKeyPressed, DownKeyPressed, LeftKeyPressed, RightKeyPressed;
         private float SpeedX, SpeedY;
+        Player first;
 
         private void WindowMaximized()
         {
@@ -32,59 +33,19 @@ namespace Menu2
         }
         private void KeyboardUp(object sender, KeyEventArgs e)
         {
-
-            if (e.Key == Key.W || e.Key == Key.Up)
-            {
-                UpKeyPressed = false;
-            }
-            if (e.Key == Key.S || e.Key == Key.Down)
-            {
-                DownKeyPressed = false;
-            }
-            if (e.Key == Key.A || e.Key == Key.Left)
-            {
-                LeftKeyPressed = false;
-            }
-            if (e.Key == Key.D || e.Key == Key.Right)
-            {
-                RightKeyPressed = false;
-            }
+            first.KeyboardUp(sender, e);
         }
 
         private void KeyBoardDown(object sender, KeyEventArgs e)
         {
-            // Создаем новый объект ImageBrush
-            ImageBrush PlayerRight = new ImageBrush();
-            // Устанавливаем свойство ImageSource объекта ImageBrush на новое изображение
-            PlayerRight.ImageSource = new BitmapImage(new Uri("characterRight.png", UriKind.RelativeOrAbsolute));
-
-            ImageBrush PlayerLeft = new ImageBrush();
-            PlayerLeft.ImageSource = new BitmapImage(new Uri("characterLeft.png", UriKind.RelativeOrAbsolute));
-
-            if (e.Key == Key.W || e.Key == Key.Up)
-            {
-                UpKeyPressed = true;
-            }
-            if (e.Key == Key.S || e.Key == Key.Down)
-            {
-                DownKeyPressed = true;
-            }
-            if (e.Key == Key.A || e.Key == Key.Left)
-            {
-                LeftKeyPressed = true;
-                Character.Fill = PlayerLeft;
-            }
-            if (e.Key == Key.D || e.Key == Key.Right)
-            {
-                RightKeyPressed = true;
-                Character.Fill = PlayerRight;
-            }
+            first.KeyBoardDown(sender, e);
         }
         public GamePlay()
         {
             InitializeComponent();
             WindowMaximized();
             GameScreen.Focus();
+            first = new Player(Character);
             GameTimer.Interval = TimeSpan.FromMilliseconds(1);
             GameTimer.Tick += GameTick;
             GameTimer.Start();
@@ -94,7 +55,7 @@ namespace Menu2
         }
         private void GameTick(object sender, EventArgs e)
         {
-            Player first = new Player(SpeedY, SpeedX, UpKeyPressed, DownKeyPressed, LeftKeyPressed, RightKeyPressed);
+
             first.Move();
             SpeedX = first.X;
             SpeedY = first.Y;
