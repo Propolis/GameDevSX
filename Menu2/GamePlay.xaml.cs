@@ -23,7 +23,7 @@ namespace Menu2
 
         private DispatcherTimer GameTimer = new DispatcherTimer();
         private bool UpKeyPressed, DownKeyPressed, LeftKeyPressed, RightKeyPressed;
-        private float SpeedX, SpeedY, Friction = 0.77f, Speed = 2f;
+        private float SpeedX, SpeedY;
 
         private void WindowMaximized()
         {
@@ -72,12 +72,12 @@ namespace Menu2
             if (e.Key == Key.A || e.Key == Key.Left)
             {
                 LeftKeyPressed = true;
-                Player.Fill = PlayerLeft;
+                Character.Fill = PlayerLeft;
             }
             if (e.Key == Key.D || e.Key == Key.Right)
             {
                 RightKeyPressed = true;
-                Player.Fill = PlayerRight;
+                Character.Fill = PlayerRight;
             }
         }
         public GamePlay()
@@ -89,58 +89,45 @@ namespace Menu2
             GameTimer.Tick += GameTick;
             GameTimer.Start();
 
+
+
         }
         private void GameTick(object sender, EventArgs e)
         {
-            if (UpKeyPressed)
-            {
-                SpeedY += Speed;
-            }
-            if (RightKeyPressed)
-            {
-                SpeedX += Speed;
-            }
-            if (LeftKeyPressed)
-            {
-                SpeedX -= Speed;
-            }
-            if (DownKeyPressed)
-            {
-                SpeedY -= Speed;
-            }
-            SpeedX = SpeedX * Friction;
-            SpeedY = SpeedY * Friction;
+            Player first = new Player(SpeedY, SpeedX, UpKeyPressed, DownKeyPressed, LeftKeyPressed, RightKeyPressed);
+            first.Move();
+            SpeedX = first.X;
+            SpeedY = first.Y;
+            Canvas.SetLeft(Character, Canvas.GetLeft(Character) + SpeedX);
+            Canvas.SetTop(Character, Canvas.GetTop(Character) - SpeedY);
 
-            Canvas.SetLeft(Player, Canvas.GetLeft(Player) + SpeedX);
-            Collide("x");
-            Canvas.SetTop(Player, Canvas.GetTop(Player) - SpeedY);
-            Collide("y");
         }
 
-        private void Collide(string Dir)
-        {
-            foreach (var x in GameScreen.Children.OfType<Rectangle>())
-            {
-                if ((string)x.Tag == "Collide")
-                {
-                    Rect PlayerHB = new Rect(Canvas.GetLeft(Player), Canvas.GetTop(Player), Player.Width, Player.Height);
-                    Rect ToCollide = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                    if (PlayerHB.IntersectsWith(ToCollide))
-                    {
-                        if (Dir == "x")
-                        {
-                            Canvas.SetLeft(Player, Canvas.GetLeft(Player) - SpeedX);
-                            SpeedX = 0;
-                        }
-                        else
-                        {
-                            Canvas.SetTop(Player, Canvas.GetTop(Player) + SpeedY);
-                            SpeedY = 0;
-                        }
-                    }
-                }
-            }
-        }
+        //private void Collide(string Dir)
+        //{
+        //    foreach (var x in GameScreen.Children.OfType<Rectangle>())
+        //    {
+        //        if ((string)x.Tag == "Collide")
+        //        {
+        //            Rect PlayerHB = new Rect(Canvas.GetLeft(Character), Canvas.GetTop(Character), Character.Width, Character.Height);
+        //            Rect ToCollide = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+        //            if (PlayerHB.IntersectsWith(ToCollide))
+        //            {
+        //                if (Dir == "x")
+        //                {
+        //                    Canvas.SetLeft(Character, Canvas.GetLeft(Character) - SpeedX);
+        //                    SpeedX = 0;
+        //                }
+        //                else
+        //                {
+        //                    Canvas.SetTop(Character, Canvas.GetTop(Character) + SpeedY);
+        //                    SpeedY = 0;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

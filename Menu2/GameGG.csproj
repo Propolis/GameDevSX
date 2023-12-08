@@ -55,9 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Collisia1.cs" />
     <Compile Include="GamePlay.xaml.cs">
       <DependentUpon>GamePlay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs" />
     <Compile Include="Settings_Page.xaml.cs">
       <DependentUpon>Settings_Page.xaml</DependentUpon>
     </Compile>
