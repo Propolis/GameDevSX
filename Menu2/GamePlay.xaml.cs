@@ -22,9 +22,9 @@ namespace Menu2
     {
 
         private DispatcherTimer GameTimer = new DispatcherTimer();
-        private bool UpKeyPressed, DownKeyPressed, LeftKeyPressed, RightKeyPressed;
         private float SpeedX, SpeedY;
         Player first;
+        Collisia collisia;
 
         private void WindowMaximized()
         {
@@ -46,6 +46,7 @@ namespace Menu2
             WindowMaximized();
             GameScreen.Focus();
             first = new Player(Character);
+            collisia = new Collisia(GameScreen, Character, SpeedX, SpeedY);
             GameTimer.Interval = TimeSpan.FromMilliseconds(1);
             GameTimer.Tick += GameTick;
             GameTimer.Start();
@@ -59,36 +60,12 @@ namespace Menu2
             first.Move();
             SpeedX = first.X;
             SpeedY = first.Y;
+            collisia._Canvas = GameScreen;
             Canvas.SetLeft(Character, Canvas.GetLeft(Character) + SpeedX);
+            collisia.Collide("x");
             Canvas.SetTop(Character, Canvas.GetTop(Character) - SpeedY);
-
+            collisia.Collide("y");
         }
 
-
-        //private void Collide(string Dir)
-        //{
-        //    foreach (var x in GameScreen.Children.OfType<Rectangle>())
-        //    {
-        //        if ((string)x.Tag == "Collide")
-        //        {
-        //            Rect PlayerHB = new Rect(Canvas.GetLeft(Character), Canvas.GetTop(Character), Character.Width, Character.Height);
-        //            Rect ToCollide = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
-
-        //            if (PlayerHB.IntersectsWith(ToCollide))
-        //            {
-        //                if (Dir == "x")
-        //                {
-        //                    Canvas.SetLeft(Character, Canvas.GetLeft(Character) - SpeedX);
-        //                    SpeedX = 0;
-        //                }
-        //                else
-        //                {
-        //                    Canvas.SetTop(Character, Canvas.GetTop(Character) + SpeedY);
-        //                    SpeedY = 0;
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
     }
 }

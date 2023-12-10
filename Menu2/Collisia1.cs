@@ -1,38 +1,53 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Shapes;
 
-//namespace Menu2
-//{
-//    internal class Collisia
-//    {
+namespace Menu2
+{
+    internal class Collisia
+    {
+        public Canvas _Canvas;
+        private Rectangle _Object;
+        private float _SpeedX;
+        private float _SpeedY;
 
-//        private void Collide(string Dir)
-//        {
-//            foreach (var x in GameScreen.Children.OfType<Rectangle>())
-//            {
-//                if ((string)x.Tag == "Collide")
-//                {
-//                    Rect PlayerHB = new Rect(Canvas.GetLeft(Character), Canvas.GetTop(Character), Character.Width, Character.Height);
-//                    Rect ToCollide = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+        public Collisia(Canvas Canvas, Rectangle object1, float SpeedX, float SpeedY)
+        {
+            _Canvas = Canvas;
+            _Object = object1;
+            _SpeedX = SpeedX;
+            _SpeedY = SpeedY;
+        }
 
-//                    if (PlayerHB.IntersectsWith(ToCollide))
-//                    {
-//                        if (Dir == "x")
-//                        {
-//                            Canvas.SetLeft(Character, Canvas.GetLeft(Character) - SpeedX);
-//                            SpeedX = 0;
-//                        }
-//                        else
-//                        {
-//                            Canvas.SetTop(Character, Canvas.GetTop(Character) + SpeedY);
-//                            SpeedY = 0;
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
+        public void Collide(string Dir)
+        {
+            foreach (var x in _Canvas.Children.OfType<Rectangle>())
+            {
+                if ((string)x.Tag == "Collide")
+                {
+                    Rect PlayerHB = new Rect(Canvas.GetLeft(_Object), Canvas.GetTop(_Object), _Object.Width, _Object.Height);
+                    Rect ToCollide = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
+
+                    if (PlayerHB.IntersectsWith(ToCollide))
+                    {
+                        if (Dir == "x")
+                        {
+                            Canvas.SetLeft(_Object, Canvas.GetLeft(_Object) - _SpeedX);
+                            _SpeedX = 0;
+                        }
+                        else
+                        {
+                            Canvas.SetTop(_Object, Canvas.GetTop(_Object) + _SpeedY);
+                            _SpeedY = 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
