@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\я\Downloads\GameDevSX-menu\GameDevSX-menu\Menu2\obj\Debug\
+C:\Users\я\source\repos\GameDevSX\Menu2\obj\Debug\
 Menu2
 none
 false
 DEBUG;TRACE
-C:\Users\я\Downloads\GameDevSX-menu\GameDevSX-menu\Menu2\App.xaml
+C:\Users\я\source\repos\GameDevSX\Menu2\App.xaml
 41449398023
 
 11139141379
 13-1310406943
 GamePlay.xaml;MainWindow.xaml;Main_Page.xaml;Settings_Page.xaml;
 
-True
+False
 

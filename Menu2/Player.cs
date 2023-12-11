@@ -17,9 +17,10 @@ namespace Menu2
     {
 
         private bool _UpKeyPressed, _DownKeyPressed, _LeftKeyPressed, _RightKeyPressed;
-        private float _SpeedX, _SpeedY, _Friction, _Speed;
+        public float _SpeedX, _SpeedY, _Friction, _Speed;
         private Rectangle _Character;
-        public Player(Rectangle Character, float SpeedY = 0, float SpeedX = 0, bool UpKeyPressed = false, bool DownKeyPressed = false, bool LeftKeyPressed = false, bool RightKeyPressed = false, float Friction = 0.77f, float Speed = 2f)
+        ImageBrush _ObjectImage;
+        public Player(ImageBrush ObjectImage, Rectangle Character, float SpeedY = 0, float SpeedX = 0, bool UpKeyPressed = false, bool DownKeyPressed = false, bool LeftKeyPressed = false, bool RightKeyPressed = false, float Friction = 0.77f, float Speed = 2f)
         {
             _Speed = Speed;
             _SpeedY = SpeedY;
@@ -30,6 +31,7 @@ namespace Menu2
             _LeftKeyPressed = LeftKeyPressed;
             _RightKeyPressed = RightKeyPressed;
             _Character = Character;
+            _ObjectImage = ObjectImage;
         }
         public float X { get; set; }
         public float Y { get; set; }
@@ -85,13 +87,6 @@ namespace Menu2
 
         public void KeyBoardDown(object sender, KeyEventArgs e)
         {
-            // Создаем новый объект ImageBrush
-            ImageBrush PlayerRight = new ImageBrush();
-            // Устанавливаем свойство ImageSource объекта ImageBrush на новое изображение
-            PlayerRight.ImageSource = new BitmapImage(new Uri("characterRight.png", UriKind.RelativeOrAbsolute));
-
-            ImageBrush PlayerLeft = new ImageBrush();
-            PlayerLeft.ImageSource = new BitmapImage(new Uri("characterLeft.png", UriKind.RelativeOrAbsolute));
 
             if (e.Key == Key.W || e.Key == Key.Up)
             {
@@ -104,12 +99,13 @@ namespace Menu2
             if (e.Key == Key.A || e.Key == Key.Left)
             {
                 _LeftKeyPressed = true;
-                _Character.Fill = PlayerLeft;
+
+                _ObjectImage.ImageSource = new BitmapImage(new Uri("characterLeft.png", UriKind.RelativeOrAbsolute));//Устанавливаем свойство ImageSource объекта ImageBrush на новое изображение
             }
             if (e.Key == Key.D || e.Key == Key.Right)
             {
                 _RightKeyPressed = true;
-                _Character.Fill = PlayerRight;
+                _ObjectImage.ImageSource = new BitmapImage(new Uri("characterRight.png", UriKind.RelativeOrAbsolute));//Устанавливаем свойство ImageSource объекта ImageBrush на новое изображение
             }
         }
     }
