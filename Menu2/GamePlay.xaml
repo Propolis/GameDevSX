@@ -7,7 +7,12 @@
         mc:Ignorable="d"
         Title="GamePlay" Height="800" Width="1554">
     <Grid>
-        <Canvas x:Name="GameScreen" Focusable="True" KeyUp="KeyboardUp" KeyDown="KeyBoardDown" Grid.ColumnSpan="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="184*"/>
+            <ColumnDefinition Width="1165*"/>
+            <ColumnDefinition Width="205*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas x:Name="GameScreen" Focusable="True" KeyUp="KeyboardUp" KeyDown="KeyBoardDown" Grid.ColumnSpan="3">
             <Canvas.Background>
                 <ImageBrush ImageSource="/3244.jpg"/>
             </Canvas.Background>

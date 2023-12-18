@@ -40,3 +40,5 @@ C:\Users\я\Downloads\GameDevSX-menu\GameDevSX-menu\Menu2\obj\Debug\GameGG.cspro
 C:\Users\я\Downloads\GameDevSX-menu\GameDevSX-menu\Menu2\obj\Debug\GameGG.csproj.CoreCompileInputs.cache
 C:\Users\я\Downloads\GameDevSX-menu\GameDevSX-menu\Menu2\obj\Debug\Menu2.exe
 C:\Users\я\Downloads\GameDevSX-menu\GameDevSX-menu\Menu2\obj\Debug\Menu2.pdb
+C:\Users\я\source\repos\GameDevSX\Menu2\obj\Debug\Dictionary1.baml
+C:\Users\я\source\repos\GameDevSX\Menu2\obj\Debug\App.baml

@@ -63,6 +63,10 @@
     <Compile Include="Settings_Page.xaml.cs">
       <DependentUpon>Settings_Page.xaml</DependentUpon>
     </Compile>
+    <Page Include="Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GamePlay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +141,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="characterRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Settings.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Play.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Exit.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="menu2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

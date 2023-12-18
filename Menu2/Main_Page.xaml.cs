@@ -27,22 +27,6 @@ namespace Menu2
             InitializeComponent();
             Application.Current.MainWindow.WindowState = WindowState.Maximized;
             // Создание объекта ImageBrush с ссылкой на изображение
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri("menu_picture.png", UriKind.Relative)); // Укажите путь к вашему изображению
-
-            // Установка изображения в качестве заднего фона для грида
-            GrMainPage.Background = imageBrush;
-            btSettings.BorderBrush = Brushes.White;
-            btSettings.Background = Brushes.Black;
-            btSettings.Foreground = Brushes.White;
-
-            btPlay.BorderBrush = Brushes.White;
-            btPlay.Background = Brushes.Black;
-            btPlay.Foreground = Brushes.White;
-
-            btGiveUp.BorderBrush = Brushes.White;
-            btGiveUp.Background = Brushes.Black;
-            btGiveUp.Foreground = Brushes.White;
 
         }
 

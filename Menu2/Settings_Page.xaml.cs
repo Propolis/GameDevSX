@@ -24,11 +24,8 @@ namespace Menu2
         {
             InitializeComponent();
             // Создание объекта ImageBrush с ссылкой на изображение
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri("menu_picture.png", UriKind.Relative)); // Укажите путь к вашему изображению
 
             // Установка изображения в качестве заднего фона для грида
-            GridSettings.Background = imageBrush;
 
             btGamePlay.BorderBrush = Brushes.White;
             btGamePlay.Background = Brushes.Black;
