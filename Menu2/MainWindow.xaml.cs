@@ -23,7 +23,7 @@ namespace Menu2
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Content = new Main_Page();
+            MainFrame.Content = new MainMenu();
         }
     }
 }

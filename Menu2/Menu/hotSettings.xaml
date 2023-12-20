@@ -1,0 +1,16 @@
+﻿<Window x:Class="Menu2.hotSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Menu2"
+        mc:Ignorable="d"
+        Title="hotSettings" Height="500" Width="500" WindowStyle="None">
+    <Viewbox Stretch="Fill">
+        <Grid>
+            <Button x:Name="btResume" Content="Возобновить игру" HorizontalAlignment="Left" Margin="100,300,100,200" VerticalAlignment="Top"/>
+            <Button x:Name="btExit" Content="Выйти из игры" HorizontalAlignment="Left" Margin="114,399,0,0" VerticalAlignment="Top" Click="btExit_Click"/>
+
+        </Grid>
+    </Viewbox>
+</Window>

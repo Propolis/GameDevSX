@@ -55,19 +55,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Collisia1.cs" />
-    <Compile Include="GamePlay.xaml.cs">
+    <Compile Include="Classes\Collisia1.cs" />
+    <Compile Include="Classes\Player.cs" />
+    <Compile Include="Game.xaml.cs">
+      <DependentUpon>Game.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Spawn\GamePlay.xaml.cs">
       <DependentUpon>GamePlay.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Player.cs" />
-    <Compile Include="Settings_Page.xaml.cs">
+    <Compile Include="Menu\hotSettings.xaml.cs">
+      <DependentUpon>hotSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Maze\Maze1.xaml.cs">
+      <DependentUpon>Maze1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Settings_Page.xaml.cs">
       <DependentUpon>Settings_Page.xaml</DependentUpon>
     </Compile>
     <Page Include="Dictionary1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GamePlay.xaml">
+    <Page Include="Game.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spawn\GamePlay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Menu\hotSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -83,18 +100,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Main_Page.xaml">
+    <Page Include="Menu\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Settings_Page.xaml">
+    <Page Include="Maze\Maze1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Menu\Settings_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main_Page.xaml.cs">
-      <DependentUpon>Main_Page.xaml</DependentUpon>
+    <Compile Include="Menu\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -122,25 +143,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="3244.jpg" />
+    <Resource Include="images\3244.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="3123.png" />
+    <Resource Include="images\3123.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="wall.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="кладка-камня_256.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="312.png" />
+    <Resource Include="images\312.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="shop.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="characterRight.png" />
+    <Resource Include="images\characterRight.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Settings.PNG" />
@@ -149,13 +164,20 @@
     <Resource Include="Play.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Exit.PNG" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="menu.png" />
+    <Resource Include="images\Exit.PNG" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="menu2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="wallMaze.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="wall.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Exit.PNG" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
