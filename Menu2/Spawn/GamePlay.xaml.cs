@@ -52,13 +52,11 @@ namespace Menu2
         }
         private void GameTick(object sender, EventArgs e)
         {
-            //if ((Canvas.GetLeft(Character) < 0) || (Canvas.GetTop(Character) < 0))
-            //{
-            //    Maze1 newLevel = new Maze1();
-            //    this.Hide();
-            //    GameTimer.Stop();
-            //    newLevel.Show();
-            //}
+            if ((Canvas.GetLeft(Character) < 0) || (Canvas.GetTop(Character) < 0))
+            {
+                GameTimer.Stop();
+                NavigationService.Navigate(new Maze1());
+            }
             player.Move();
             SpeedX = player.X;
             SpeedY = player.Y;

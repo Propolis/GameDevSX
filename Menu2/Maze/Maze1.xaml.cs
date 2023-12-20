@@ -20,17 +20,17 @@ using System.Windows.Threading;
 
 namespace Menu2
 {
-    public partial class Maze1 : Window
+    public partial class Maze1 : Page
     {
         private DispatcherTimer GameTimer = new DispatcherTimer();
         private float SpeedX, SpeedY;
         Player player2;
         Collisia collisia;
-        private void WindowMaximized()
-        {
-            // Создаем новый объект окна gamePlay
-            this.WindowState = WindowState.Maximized;
-        }
+        //private void WindowMaximized()
+        //{
+        //    Создаем новый объект окна gamePlay
+        //    this.WindowState = WindowState.Maximized;
+        //}
         private void KeyboardUp(object sender, KeyEventArgs e)
         {
             player2.KeyboardUp(sender, e);
@@ -42,7 +42,6 @@ namespace Menu2
         public Maze1()
         {
             InitializeComponent();
-            WindowMaximized();
             GameScreen.Focus();
             player2 = new Player(ImagePlayer, Character);
             collisia = new Collisia(GameScreen, Character, SpeedX, SpeedY, player2);
@@ -58,16 +57,12 @@ namespace Menu2
 
         private void GameTick(object sender, EventArgs e)
         {
-            //if ((Canvas.GetLeft(Character) > GameScreen.ActualWidth) || (Canvas.GetTop(Character) > GameScreen.ActualHeight))
-            //{
+            if ((Canvas.GetLeft(Character) > GameScreen.ActualWidth) || (Canvas.GetTop(Character) > GameScreen.ActualHeight))
+            {
 
-            //    Привязываем анимацию к свойству Opacity окна
-            //    this.BeginAnimation(Window.OpacityProperty, animation);
-            //    GamePlay newLevel = new GamePlay();
-            //    this.Hide();
-            //    GameTimer.Stop();
-            //    newLevel.Show();
-            //}
+                GameTimer.Stop();
+                NavigationService.Navigate(new GamePlay());
+            }
             player2.Move();
             SpeedX = player2.X;
             SpeedY = player2.Y;
