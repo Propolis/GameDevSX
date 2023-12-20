@@ -48,3 +48,4 @@ C:\Users\я\source\repos\GameDevSX\Menu2\obj\Debug\Spawn\GamePlay.g.cs
 C:\Users\я\source\repos\GameDevSX\Menu2\obj\Debug\Maze\Maze1.g.cs
 C:\Users\я\source\repos\GameDevSX\Menu2\obj\Debug\Spawn\GamePlay.baml
 C:\Users\я\source\repos\GameDevSX\Menu2\obj\Debug\Maze\Maze1.baml
+C:\Users\я\source\repos\GameDevSX\Menu2\obj\Debug\Maze\BigMaze.g.cs

@@ -57,8 +57,12 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Collisia1.cs" />
     <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\PlayerMap.cs" />
     <Compile Include="Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Maze\BigMaze.xaml.cs">
+      <DependentUpon>BigMaze.xaml</DependentUpon>
     </Compile>
     <Compile Include="Spawn\GamePlay.xaml.cs">
       <DependentUpon>GamePlay.xaml</DependentUpon>
@@ -77,6 +81,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Game.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Maze\BigMaze.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +186,11 @@
   <ItemGroup>
     <Resource Include="Exit.PNG" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Maze\BigMaze.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Maze\characterRight.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
